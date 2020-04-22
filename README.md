@@ -25,7 +25,7 @@ SSL.
 
 Served by Clojars.  In your Leiningen project.clj:
 
-[![Clojars Project](https://img.shields.io/clojars/v/com.draines/postal.svg)](https://clojars.org/com.draines/postal)
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.guv/postal.svg)](https://clojars.org/org.clojars.guv/postal)
 
 Likewise substitute any tag name from git.
 
@@ -122,6 +122,19 @@ you can only send *to* a verified address as well.  Example:
                     :subject "Test from Amazon SES" :body "Test!!!11"})
     {:error :SUCCESS, :code 0, :message "messages sent"}
     postal.core>
+
+
+#### HTML body
+
+To send an HTML email, you can specify the `:body` as follows:
+```clojure
+(send-message {:host "mail.isp.net"}
+   {:from "me@draines.com"
+    :to "foo@example.com"
+    :subject "Hi!"
+    :body {:type "text/html"
+           :content "<b>Test!</b>"}})
+``` 
 
 #### Attachments
 
